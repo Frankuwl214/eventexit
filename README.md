@@ -1,7 +1,7 @@
 <div align="center">
   <br />
-    <a href="https://Blackcultureevent.com" target="_blank">
-      <img src="https://github.com/adrianhajdin/event_platform/assets/151519281/548975af-f0ed-4103-8834-fe93cf91862e" alt="Project Banner">
+    <a href="https://BlackCultureEvent.com" target="_blank">
+      <img src="https://github.com/ Frankuwl214" alt="Project Banner">
     </a>
   <br />
 
@@ -11,10 +11,10 @@
     <img src="https://img.shields.io/badge/-Stripe-black?style=for-the-badge&logoColor=white&logo=stripe&color=008CDD" alt="stripe" />
   </div>
 
-  <h3 align="center">B.A.M.E.Community Events App</h3>
+  <h3 align="center">A B.A.M.E.Community Events App</h3>
 
    <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://Blackcultureevent.com" target="_blank"><b>Frank</b></a>Van Laarhoven
+     Create Endless events on <a href="https://Blackcultureevent.com" target="_blank"><b>Black Culture Event </b></a> Frank Van Laarhoven
     </div>
 </div>
 
@@ -88,7 +88,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://[https://github.com/Frankuwl214]/afrorites.git
+git clone https://[https://github.com/Frankuwl214]/BlackCultureEvent.git
 cd afrorites
 ```
 
@@ -1351,24 +1351,17 @@ export default Orders
 
 ## <a name="links">🔗 Links</a>
 
-All assets used in the project can be found [here](https://drive.google.com/file/d/1O7Th9vWcbPIwJQB_mJR3507LUk2kYgVQ/view?usp=sharing)
 
 ## <a name="more">🚀 More</a>
 
 **Advance your skills with Next.js 14 Pro Course**
 
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with detailed explanations, cool features, and exercises to boost your skills. Give it a go!
+Enjoyed creating this project?  Tell your friends to join our community platform for an inclusive Culturerally World 
 
-<a href="https://Blackcultureevent" target="_blank">
+<a href="https://BlackCultureEvent" target="_blank">
 <img src="" alt="Project Banner">
 </a>
 
 <br />
 <br />
-
-**Accelerate your professional journey with Expert Training program**
-
-And if you're hungry for more than just a course and want to understand how we learn and tackle tech challenges, hop into our personalized masterclass. We cover best practices, different web skills, and offer mentorship to boost your confidence. Let's learn and grow together!
-
-
 #
