@@ -16,7 +16,7 @@ const Checkout = ({ event, userId }: { event: IEvent, userId: string }) => {
     }
 
     if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+      console.log('Order canceled -- continue to shop around and checkout when you are ready.');
     }
   }, []);
 
