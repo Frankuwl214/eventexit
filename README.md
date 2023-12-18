@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-    <a href="https://BlackCultureEvent.com" target="_blank">
+    <a href="https://EventExit.com" target="_blank">
       <img src="https://github.com/ Frankuwl214" alt="Project Banner">
     </a>
   <br />
@@ -14,7 +14,7 @@
   <h3 align="center">A B.A.M.E.Community Events App</h3>
 
    <div align="center">
-     Create Endless events on <a href="https://Blackcultureevent.com" target="_blank"><b>Black Culture Event </b></a> Frank Van Laarhoven
+     Create Endless events on <a href="https://EventExit.com" target="_blank"><b>Black Culture Event </b></a> Frank Van Laarhoven
     </div>
 </div>
 
@@ -88,7 +88,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://[https://github.com/Frankuwl214]/BlackCultureEvent.git
+git clone https://[https://github.com/Frankuwl214]/EventExit.git
 cd afrorites
 ```
 
@@ -1358,7 +1358,7 @@ export default Orders
 
 Enjoyed creating this project?  Tell your friends to join our community platform for an inclusive Culturerally World 
 
-<a href="https://BlackCultureEvent" target="_blank">
+<a href="https://EventExit.com" target="_blank">
 <img src="" alt="Project Banner">
 </a>
 
