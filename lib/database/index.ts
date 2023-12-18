@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -10,7 +12,7 @@ export const connectToDatabase = async () => {
   if(!MONGODB_URI) throw new Error('MONGODB_URI is missing');
 
   cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
-    dbName: 'AfroRs',
+    dbName: 'blackcultureevent',
     bufferCommands: false,
   })
 
