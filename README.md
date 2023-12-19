@@ -11,10 +11,10 @@
     <img src="https://img.shields.io/badge/-Stripe-black?style=for-the-badge&logoColor=white&logo=stripe&color=008CDD" alt="stripe" />
   </div>
 
-  <h3 align="center">A B.A.M.E  Community Events App</h3>
+  <h3 align="center">Urban Ai powered events App</h3>
 
    <div align="center">
-     Create Endless events on <a href="https://EventExit.com" target="_blank"><b>Black Culture Event </b></a> Frank Van Laarhoven
+     Create Endless events in <a href="https://EventExit.com" target="_blank"><b>any language and time-zone on</b></a> EventExit
     </div>
 </div>
 
@@ -50,6 +50,7 @@ This project is built on Next.js 14, as a B.A.M.E. Community events application 
 ## <a name="All inclusive features">🔋 Features</a>
 
 👉 ** This Authentication is (CRUD) with Clerk:** User management through Clerk, ensuring secure and efficient authentication.
+- Ai powered localization for language translation, time and currency
 
 👉 **The Events are (CRUD):** Thus, A comprehensive functionality for creating, reading, updating, and deleting events, giving users full control over event management.
 - **Create Events:** Users can effortlessly generate new events, providing essential details such as title, date, location, and any additional information.
@@ -88,7 +89,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://[https://github.com/Frankuwl214]/EventExit.git
+git clone https://github.com/Frankuwl214]/EventExit.git
 cd eventexit
 ```
 
@@ -112,6 +113,9 @@ NEXT_PUBLIC_SERVER_URL=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 NEXT_CLERK_WEBHOOK_SECRET=
+
+GOOGLE_TRANSLATE_API_KEY=your_api_key_here
+GOOGLE_MAP_API_KEY=your_api_key_here
 
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
@@ -139,7 +143,7 @@ Replace the placeholder values with your actual credentials
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Open [http://localhost:3000] in your browser to view the project.
 
 ## <a name="snippets">🕸️ Snippets</a>
 
