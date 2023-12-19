@@ -250,7 +250,7 @@ body {
 .cl-formButtonPrimary:hover,
 .cl-formButtonPrimary:focus,
 .cl-formButtonPrimary:active {
-  background-color: #705CF7
+  background-color: #5c69f7
 }
 
 /* ========================================== REACT-DATEPICKER STYLES */
@@ -266,12 +266,12 @@ body {
 }
 
 .react-datepicker__day--selected {
-  background-color: #624cf5 !important;
+  background-color: #4c5af5 !important;
   color: #ffffff !important;
   border-radius: 4px;
 }
 
 .react-datepicker__time-list-item--selected {
-  background-color: #624cf5 !important;
+  background-color: #4c6ef5 !important;
 }
 

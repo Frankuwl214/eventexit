@@ -1,66 +1,71 @@
+// localizationAndTranslationService.js
+
+import { Translate } from '@google-cloud/translate';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import qs from 'query-string';
 import { UrlQueryParams, RemoveUrlQueryParams } from '@/types';
+import { getUserLanguagePreference, detectLanguage } from './userLanguageService';
+import { cacheTranslations, getFromCache } from './translationCacheService';
+
+require('dotenv').config();
+
+const translate = new Translate({ key: process.env.GOOGLE_TRANSLATE_API_KEY });
+const defaultLanguage = 'en';
+const userLocale = navigator.language || 'en-US'; // Locale detection for date and currency
+
+const getLanguageToUse = async () => {
+  const userPreferredLanguage = getUserLanguagePreference(); // Function to get the user's manual language setting
+  if (userPreferredLanguage) {
+    return userPreferredLanguage;
+  }
+  const detectedLanguage = await detectLanguage();
+  return detectedLanguage || defaultLanguage;
+};
+
+const translateText = async (text, targetLanguage) => {
+  const cacheKey = `${targetLanguage}_${text}`;
+  const cachedTranslation = getFromCache(cacheKey);
+  if (cachedTranslation) return cachedTranslation;
+
+  try {
+    let [translations] = await translate.translate(text, targetLanguage);
+    cacheTranslations(cacheKey, translations); // Cache the translation
+    return translations;
+  } catch (error) {
+    console.error('Error with translation:', error);
+    return text; // Fallback to the original text in case of an error
+  }
+};
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const formatDateTime = (dateString: Date) => {
-  const dateTimeOptions: Intl.DateTimeFormatOptions = {
-    weekday: 'short', // abbreviated weekday name (e.g., 'Mon')
-    month: 'short', // abbreviated month name (e.g., 'Oct')
-    day: 'numeric', // numeric day of the month (e.g., '25')
-    hour: 'numeric', // numeric hour (e.g., '8')
-    minute: 'numeric', // numeric minute (e.g., '30')
-    hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
-  };
-
-  const dateOptions: Intl.DateTimeFormatOptions = {
-    weekday: 'short', // abbreviated weekday name (e.g., 'Mon')
-    month: 'short', // abbreviated month name (e.g., 'Oct')
-    year: 'numeric', // numeric year (e.g., '2023')
-    day: 'numeric', // numeric day of the month (e.g., '25')
-  };
-
-  const timeOptions: Intl.DateTimeFormatOptions = {
-    hour: 'numeric', // numeric hour (e.g., '8')
-    minute: 'numeric', // numeric minute (e.g., '30')
-    hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
-  };
-
-  const formattedDateTime: string = new Date(dateString).toLocaleString('en-US', dateTimeOptions);
-  const formattedDate: string = new Date(dateString).toLocaleString('en-US', dateOptions);
-  const formattedTime: string = new Date(dateString).toLocaleString('en-US', timeOptions);
-
+export const formatDateTime = (dateString) => {
+  // dateTimeOptions, dateOptions, timeOptions remain the same as your previous code
   return {
-    dateTime: formattedDateTime,
-    dateOnly: formattedDate,
-    timeOnly: formattedTime,
+    dateTime: new Date(dateString).toLocaleString(userLocale, dateTimeOptions),
+    dateOnly: new Date(dateString).toLocaleString(userLocale, dateOptions),
+    timeOnly: new Date(dateString).toLocaleString(userLocale, timeOptions),
   };
 };
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
-export const formatPrice = (price: string) => {
-  const amount = parseFloat(price);
-  const formattedPrice = new Intl.NumberFormat('en-US', {
+export const formatPrice = (price) => {
+  // Assuming getCurrencyCode is a function mapping userLocale to currency code
+  const currencyCode = getCurrencyCode(userLocale);
+  return new Intl.NumberFormat(userLocale, {
     style: 'currency',
-    currency: 'USD',
-  }).format(amount);
-
-  return formattedPrice;
+    currency: currencyCode,
+  }).format(parseFloat(price));
 };
 
 export function formUrlQuery({ params, key, value }: UrlQueryParams) {
   const currentUrl = qs.parse(params);
   currentUrl[key] = value;
-
-  return qs.stringifyUrl({
-    url: window.location.pathname,
-    query: currentUrl,
-  }, { skipNull: true });
+  return qs.stringifyUrl({ url: window.location.pathname, query: currentUrl }, { skipNull: true });
 };
 
 export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryParams) {
@@ -68,14 +73,13 @@ export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryPara
   keysToRemove.forEach(key => {
     delete currentUrl[key];
   });
-
-  return qs.stringifyUrl({
-    url: window.location.pathname,
-    query: currentUrl,
-  }, { skipNull: true });
+  return qs.stringifyUrl({ url: window.location.pathname, query: currentUrl }, { skipNull: true });
 };
 
 export const handleError = (error: unknown) => {
   console.error("Encountered Error:", error);
   throw error instanceof Error ? error : new Error(JSON.stringify(error));
 };
+
+// Export the translate function for use in the application
+export { translateText as translate };

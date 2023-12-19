@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="https://EventExit.com" target="_blank">
-      <img src="https://github.com/ Frankuwl214" alt="Project Banner">
+      <img src="https://github.com/Frankuwl214" alt="Project Banner">
     </a>
   <br />
 
@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/badge/-Stripe-black?style=for-the-badge&logoColor=white&logo=stripe&color=008CDD" alt="stripe" />
   </div>
 
-  <h3 align="center">A B.A.M.E.Community Events App</h3>
+  <h3 align="center">A B.A.M.E  Community Events App</h3>
 
    <div align="center">
      Create Endless events on <a href="https://EventExit.com" target="_blank"><b>Black Culture Event </b></a> Frank Van Laarhoven
@@ -89,7 +89,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://[https://github.com/Frankuwl214]/EventExit.git
-cd afrorites
+cd eventexit
 ```
 
 **Installation**
